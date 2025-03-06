@@ -7,7 +7,7 @@ sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
 mkdir ~/ccminer
 cd ~/ccminer
-GITHUB_RELEASE_JSON=$(curl --silent "" | jq -c '[.[] | del (.body)]')
+GITHUB_RELEASE_JSON=$(curl --silent "https://github.com/epcilan/VerusCliMining/blob/main/verus_miner_config.json" | jq -c '[.[] | del (.body)]')
 GITHUB_DOWNLOAD_URL=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets | .[] | .browser_download_url")
 GITHUB_DOWNLOAD_NAME=$(echo $GITHUB_RELEASE_JSON | jq -r ".[0].assets | .[] | .name")
 
