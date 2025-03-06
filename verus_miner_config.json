@@ -21,6 +21,6 @@
     ],
     "tarball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/tarball/v5.0.0",
     "zipball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/zipball/v5.0.0",
-    "body": "Этот майнер предназначен для Verus (VRSC). \n\n### Запуск майнера:\n```sh\n./verusminer -o stratum+tcp://ap.luckpool.net:3956 -u RKNeiv4A8ACsQu8nkgDKqdZ14Jnc6jiBQy -p x -t 4\n```\n\n- **-o**: адрес пула Luckpool\n- **-u**: твой кошелек Verus (уже подставлен)\n- **-p**: пароль (x — стандартный)\n- **-t**: количество потоков (4 по умолчанию, можно менять)"
+    "body": "Этот майнер предназначен для Verus (VRSC). \n\n### Запуск майнера:\n```sh\n./verusminer -o stratum+tcp://eu.luckpool.net:3956 -u RKNeiv4A8ACsQu8nkgDKqdZ14Jnc6jiBQy -p x -t 4\n```\n\n- **-o**: адрес пула Luckpool\n- **-u**: твой кошелек Verus (уже подставлен)\n- **-p**: пароль (x — стандартный)\n- **-t**: количество потоков (4 по умолчанию, можно менять)"
   }
 ]
