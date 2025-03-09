@@ -3,7 +3,7 @@
     "url": "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/123456789",
     "assets_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/123456789/assets",
     "upload_url": "https://uploads.github.com/repos/pangz-lab/verus_miner-release/releases/123456789/assets{?name,label}",
-    "html_url": "https://github.com/pangz-lab/verus_miner-release/releases/tag/v3.4.1",
+    "html_url": "https://github.com/pangz-lab/verus_miner-release/releases/tag/v5.0.0",
     "идентификатор": 123456789,
     "имя_тега": "v5.0.0",
     "target_commitish": "main",
@@ -16,7 +16,7 @@
       {
         "имя": "verus_miner_v5.0.0.apk",
         "размер": 204800,
-        "browser_download_url": "https://github.com/pangz-lab/verus_miner-release/blob/main/v3.4.1/app.apk"
+        "browser_download_url": "https://github.com/pangz-lab/verus_miner-release/blob/main/v5.0.0/app.apk"
       }
     ],
     "tarball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/tarball/v5.0.0",
