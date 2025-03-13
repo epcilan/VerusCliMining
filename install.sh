@@ -1,45 +1,53 @@
 #!/bin/sh
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget
 
-# Устанавливаем libssl1.1
-wget http://ports.ubuntu.com/pool/main/o/openssl/libssl1.1_1.1.0g-2ubuntu4_arm64.deb
-sudo dpkg -i libssl1.1_1.1.0g-2ubuntu4_arm64.deb
-rm libssl1.1_1.1.0g-2ubuntu4_arm64.deb
+# Обновление и установка необходимых пакетов (без sudo)
+apt-get -y update && apt-get -y upgrade
+apt-get -y install libcurl4-openssl-dev libjansson-dev libomp-dev git screen nano jq wget || echo "Ошибка: некоторые пакеты не установлены!"
 
-# Создаем папку для майнера
+# Создаем папку для майнера в доступной директории
 mkdir -p ~/ccminer
-cd ~/ccminer
+cd ~/ccminer || exit
 
-# Загружаем JSON с релизами
-GITHUB_RELEASE_JSON=$(curl --silent "https://raw.githubusercontent.com/epcilan/VerusCliMining/main/verus_miner_config.json")
+# Получаем последнюю версию майнера через API GitHub
+GITHUB_RELEASE_JSON=$(curl --silent "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/latest")
 
-# Получаем URL для загрузки
-GITHUB_DOWNLOAD_URL=$(echo $GITHUB_RELEASE_JSON | jq -r '.assets[0].browser_download_url')
-GITHUB_DOWNLOAD_NAME=$(echo $GITHUB_RELEASE_JSON | jq -r '.assets[0].name')
+# Извлекаем URL для загрузки
+GITHUB_DOWNLOAD_URL=$(echo "$GITHUB_RELEASE_JSON" | jq -r '.assets[0].browser_download_url')
+GITHUB_DOWNLOAD_NAME=$(echo "$GITHUB_RELEASE_JSON" | jq -r '.assets[0].name')
 
-echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
+# Проверяем, получена ли ссылка
+if [ -z "$GITHUB_DOWNLOAD_URL" ] || [ "$GITHUB_DOWNLOAD_URL" = "null" ]; then
+    echo "Ошибка: Не удалось получить ссылку на майнер."
+    exit 1
+fi
+
+echo "Скачиваем последнюю версию: $GITHUB_DOWNLOAD_NAME"
 
 # Скачиваем майнер
-wget ${GITHUB_DOWNLOAD_URL} -O ~/ccminer/ccminer
+wget -O ~/ccminer/ccminer "$GITHUB_DOWNLOAD_URL"
+
+# Проверяем, скачался ли файл
+if [ ! -f ~/ccminer/ccminer ]; then
+    echo "Ошибка: Файл майнера не скачался!"
+    exit 1
+fi
 
 # Скачиваем конфигурацию
-wget https://raw.githubusercontent.com/epcilan/VerusCliMining/main/config_luckpool.json -O ~/ccminer/config_luckpool.json
+wget -O ~/ccminer/config_luckpool.json "https://raw.githubusercontent.com/epcilan/VerusCliMining/main/config_luckpool.json"
 
 # Даем права на выполнение
 chmod +x ~/ccminer/ccminer
 
 # Создаем стартовый скрипт
-cat << EOF > ~/ccminer/start2.sh
+cat << EOF > ~/ccminer/start.sh
 #!/bin/sh
 ~/ccminer/ccminer -c ~/ccminer/config_luckpool.json
 EOF
 
-chmod +x ~/ccminer/start2.sh
+chmod +x ~/ccminer/start.sh
 
-echo "Setup nearly complete."
-echo "Edit the config with \"nano ~/ccminer/config_luckpool.json\""
-echo "Go to line 15 and change your worker name."
-echo "Use \"CTRL-X\" to exit, press \"Y\" to save, and \"Enter\" to confirm."
-echo "Start the miner with: cd ~/ccminer && ./start2.sh"
+echo "✅ Установка завершена!"
+echo "Редактируйте конфиг с помощью: nano ~/ccminer/config_luckpool.json"
+echo "Измените имя воркера на строке 15."
+echo "Для запуска майнера используйте:"
+echo "cd ~/ccminer && ./start.sh"
