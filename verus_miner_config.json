@@ -1,26 +1,24 @@
-[
-  {
-    "url": "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/123456789",
-    "assets_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/123456789/assets",
-    "upload_url": "https://uploads.github.com/repos/pangz-lab/verus_miner-release/releases/123456789/assets{?name,label}",
-    "html_url": "https://github.com/pangz-lab/verus_miner-release/releases/tag/v5.0.0",
-    "идентификатор": 123456789,
-    "имя_тега": "v5.0.0",
-    "target_commitish": "main",
-    "name": "Verus Miner 5.0.0",
-    "черновик": ложь,
-    "предварительный выпуск": ложь,
-    "created_at": "2024-03-06T12:00:00Z",
-    "published_at": "2024-03-06T12:30:00Z",
-    "ресурсы": [
-      {
-        "имя": "verus_miner_v5.0.0.apk",
-        "размер": 204800,
-        "browser_download_url": "https://github.com/pangz-lab/verus_miner-release/blob/main/v5.0.0/app.apk"
-      }
-    ],
-    "tarball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/tarball/v5.0.0",
-    "zipball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/zipball/v5.0.0",
-    "body": "Этот майнер предназначен для Verus (VRSC). \n\n### Запуск майнера:\n```sh\n./verusminer -o stratum+tcp://eu.luckpool.net:3956 -u RKNeiv4A8ACsQu8nkgDKqdZ14Jnc6jiBQy -p x -t 4\n```\n\n- **-o**: адрес пула Luckpool\n- **-u**: твой кошелек Verus (уже подставлен)\n- **-p**: пароль (x — стандартный)\n- **-t**: количество потоков (4 по умолчанию, можно менять)"
-  }
-]
+{
+  "url": "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/123456789",
+  "assets_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/releases/123456789/assets",
+  "upload_url": "https://uploads.github.com/repos/pangz-lab/verus_miner-release/releases/123456789/assets{?name,label}",
+  "html_url": "https://github.com/pangz-lab/verus_miner-release/releases/tag/v5.0.0",
+  "id": 123456789,
+  "tag_name": "v5.0.0",
+  "target_commitish": "main",
+  "name": "Verus Miner 5.0.0",
+  "draft": false,
+  "prerelease": false,
+  "created_at": "2024-03-06T12:00:00Z",
+  "published_at": "2024-03-06T12:30:00Z",
+  "assets": [
+    {
+      "name": "verus_miner_v5.0.0.apk",
+      "size": 204800,
+      "browser_download_url": "https://github.com/pangz-lab/verus_miner-release/releases/download/v5.0.0/verus_miner_v5.0.0.apk"
+    }
+  ],
+  "tarball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/tarball/v5.0.0",
+  "zipball_url": "https://api.github.com/repos/pangz-lab/verus_miner-release/zipball/v5.0.0",
+  "body": "Этот майнер предназначен для Verus (VRSC).\n\n### Запуск майнера:\n```sh\n./verusminer -o stratum+tcp://eu.luckpool.net:3956 -u RKNeiv4A8ACsQu8nkgDKqdZ14Jnc6jiBQy -p x -t 4\n```\n\n- **-o**: адрес пула Luckpool\n- **-u**: твой кошелек Verus (уже подставлен)\n- **-p**: пароль (x — стандартный)\n- **-t**: количество потоков (4 по умолчанию, можно менять)"
+}
