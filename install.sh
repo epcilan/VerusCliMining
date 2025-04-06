@@ -15,7 +15,7 @@ echo "Downloading latest release: $GITHUB_DOWNLOAD_NAME"
 
 wget ${GITHUB_DOWNLOAD_URL} -O ~/ccminer/ccminer
 
-wget https://raw.githubusercontent.com/epcilan/VerusCliMining/main/config_luckpool.json -O ~/ccminer/config_luckpool.json
+wget https://raw.githubusercontent.com/MaxAnd317/VerusCliMining/main/config_luckpool.json -O ~/ccminer/config_luckpool.json
 
 chmod +x ~/ccminer/ccminer
 
